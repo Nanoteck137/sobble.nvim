@@ -5,8 +5,19 @@ local Path = require "plenary.path"
 
 local M = {}
 
+M.setup = function(opts)
+    opts = opts or {}
+
+    if opts.config_path == nil then
+        error "sobble: 'config_path' not set"
+        return
+    end
+
+    M.config_path = opts.config_path
+end
+
 M.get_projects = function()
-    local file_content = Path:new("~/test.json"):read()
+    local file_content = Path:new(M.config_path):read()
     local obj = vim.json.decode(file_content)
     return obj
 end
