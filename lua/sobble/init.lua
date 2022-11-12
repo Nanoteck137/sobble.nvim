@@ -29,9 +29,8 @@ M.load_project = function(proj)
     end
 
     local path = Path.new(proj.cwd):expand()
-    path = Path.new(path)
 
-    vim.cmd("tcd " .. tostring(path))
+    vim.cmd("tcd " .. path)
     if proj.open_file then
         vim.cmd("e " .. proj.open_file);
     end
