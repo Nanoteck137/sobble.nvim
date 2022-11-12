@@ -35,6 +35,8 @@ M.load_project = function(proj)
     if proj.open_file then
         vim.cmd("e " .. proj.open_file);
     end
+
+    vim.api.nvim_tabpage_set_var(0, "sobble_current_project", proj);
 end
 
 return M
