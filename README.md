@@ -33,12 +33,12 @@ Plug 'nanoteck137/sobble.nvim'
 ### Setup
 
 ```lua
-require('sobble.nvim').setup {
+require('sobble').setup {
     config_path = 'path to config'
 }
 
 -- Example
-require('sobble.nvim').setup {
+require('sobble').setup {
     config_path = '~/projects.json'
 }
 ```
