@@ -43,6 +43,30 @@ require('sobble.nvim').setup {
 }
 ```
 
+### Config
+Example config json file
+```json
+[
+    {
+        "title": "Example Project",
+        "cwd": "~/some_project",
+        "open_file": "src/main.rs",
+    }
+]
+```
+
+You can even add custom properties to the project and query them in Neovim
+```json
+[
+    {
+        "title": "Example Project",
+        "cwd": "~/some_project",
+        "open_file": "src/main.rs",
+        "custom_property": "example"
+    }
+]
+```
+
 ### Usage with Telescope
 
 ```lua
@@ -64,6 +88,18 @@ local projects = require('sobble').get_projects()
 
 -- Load project
 require('sobble').load_project(projects[1])
+```
+
+You can access the current loaded project in the tab page with this example
+```lua
+-- Access the project loaded in the tab, 
+-- returns nil if no project is loaded
+local current_project = vim.t.sobble_current_project
+-- Print the title of the currenly loaded project
+print(current_project.title)
+
+-- Access custom properties like this
+print(current_project.custom_property)
 ```
 
 ## Authors
